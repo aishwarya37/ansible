@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+   - name: Installing Web server
+     package:
+      name: httpd
+      state: installed
+   - name: Starting the service
+     service:
+      name: httpd
+      state: started
+      enabled: yes
